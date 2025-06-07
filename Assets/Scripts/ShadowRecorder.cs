@@ -4,11 +4,13 @@ using UnityEngine;
 public class ShadowRecorder : MonoBehaviour
 {
     public GameObject shadowPrefab;
-    public Transform spawnPoint;
+    private Transform spawnPoint;
     private bool isRecording = false;
     private List<PlayerInputFrame> recordedInputs = new List<PlayerInputFrame>();
     private float recordTimer = 0f;
     public float maxRecordTime = 10f;
+    private Vector3 spawnPosition;
+    private Vector3 scale;
 
     void Update()
     {
@@ -19,6 +21,8 @@ public class ShadowRecorder : MonoBehaviour
                 recordedInputs.Clear();
                 isRecording = true;
                 recordTimer = 0f;
+                spawnPosition = transform.position;
+                scale = transform.localScale;
             }
             else
             {
@@ -49,10 +53,13 @@ public class ShadowRecorder : MonoBehaviour
 
     void SpawnShadow()
     {
-        GameObject shadow = Instantiate(shadowPrefab, spawnPoint.position, Quaternion.identity);
+       
+        GameObject shadow = Instantiate(shadowPrefab, spawnPosition, Quaternion.identity);
+        shadow.transform.rotation = transform.rotation;
         ShadowPlayback playback = shadow.GetComponent<ShadowPlayback>();
         playback.LoadPlayback(recordedInputs);
     }
+
 }
 
 [System.Serializable]
