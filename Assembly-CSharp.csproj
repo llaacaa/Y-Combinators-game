@@ -101,6 +101,7 @@
     <Compile Include="Assets\Scripts\Spells\Fire Ball.cs" />
     <Compile Include="Assets\InventorySystem\UISlot.cs" />
     <Compile Include="Assets\InventorySystem\EquipmentSystem\Loadout.cs" />
+    <Compile Include="Assets\Scripts\MovablePlatform.cs" />
     <Compile Include="Assets\Scripts\Spells\FrozenPlayer.cs" />
     <Compile Include="Assets\Scripts\Time manipulation\TimeVortex.cs" />
     <Compile Include="Assets\InventorySystem\ArmorItem.cs" />
@@ -117,6 +118,7 @@
     <Compile Include="Assets\Scripts\Space manipulation\GhostState.cs" />
     <Compile Include="Assets\Scripts\Random\SecurityCamera.cs" />
     <Compile Include="Assets\Scripts\Spells\IceBall.cs" />
+    <Compile Include="Assets\Scripts\ButtonTrigger.cs" />
     <Compile Include="Assets\InventorySystem\UIItemContextMenu.cs" />
     <Compile Include="Assets\InventorySystem\InventoryUIController.cs" />
     <Compile Include="Assets\InventorySystem\EquipmentSystem\EquipmentSlot.cs" />
