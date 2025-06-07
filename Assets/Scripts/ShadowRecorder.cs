@@ -18,7 +18,7 @@ public class ShadowRecorder : MonoBehaviour
         {
             if (!isRecording)
             {
-                recordedInputs.Clear();
+                recordedInputs = new List<PlayerInputFrame>();
                 isRecording = true;
                 recordTimer = 0f;
                 spawnPosition = transform.position;
@@ -45,7 +45,8 @@ public class ShadowRecorder : MonoBehaviour
                 {
                     time = Time.time,
                     horizontal = Input.GetAxisRaw("Horizontal"),
-                    jump = Input.GetKeyDown(KeyCode.Space)
+                    jump = Input.GetKeyDown(KeyCode.Space),
+                    interact = Input.GetKeyDown(KeyCode.F)
                 });
             }
         }
@@ -53,11 +54,10 @@ public class ShadowRecorder : MonoBehaviour
 
     void SpawnShadow()
     {
-       
         GameObject shadow = Instantiate(shadowPrefab, spawnPosition, Quaternion.identity);
         shadow.transform.rotation = transform.rotation;
         ShadowPlayback playback = shadow.GetComponent<ShadowPlayback>();
-        playback.LoadPlayback(recordedInputs);
+        playback.LoadPlayback(recordedInputs,spawnPosition);
     }
 
 }
@@ -68,4 +68,5 @@ public class PlayerInputFrame
     public float time;
     public float horizontal;
     public bool jump;
+    public bool interact;
 }

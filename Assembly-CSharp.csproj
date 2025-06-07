@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\Time manipulation\TimeManipulation.cs" />
     <Compile Include="Assets\Scripts\Random\ObjectControll.cs" />
     <Compile Include="Assets\Scripts\Random\BillboardUI.cs" />
+    <Compile Include="Assets\Scripts\IInterector.cs" />
     <Compile Include="Assets\Scripts\Space manipulation\SwapPlaces.cs" />
     <Compile Include="Assets\Scripts\Time manipulation\SpeedTimeScale.cs" />
     <Compile Include="Assets\InventorySystem\Hotbar\UIHotbarSlot.cs" />

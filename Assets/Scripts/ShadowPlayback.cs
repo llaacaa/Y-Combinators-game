@@ -16,11 +16,16 @@ public class ShadowPlayback : MonoBehaviour
     public float groundCheckRadius = 0.1f;
     public LayerMask groundLayer;
     public int jumpNumber = 1;
+    private Vector3 spawnPosition;
 
-    public void LoadPlayback(List<PlayerInputFrame> inputs)
+    public float interactRange = 4.0f;
+
+    public void LoadPlayback(List<PlayerInputFrame> inputs, Vector3 spawnPosition)
     {
         playbackInputs = inputs;
         playbackStartTime = Time.time;
+        this.spawnPosition = spawnPosition;
+        transform.position = spawnPosition;
     }
 
     void Start()
@@ -30,7 +35,13 @@ public class ShadowPlayback : MonoBehaviour
 
     void Update()
     {
-        if (playbackInputs == null || currentFrame >= playbackInputs.Count) return;
+        if (playbackInputs == null) return;
+        if (currentFrame >= playbackInputs.Count)
+        {
+            LoadPlayback(playbackInputs,spawnPosition);
+            currentFrame = 0;
+            return;
+        }
 
         float elapsedTime = Time.time - playbackStartTime;
 
@@ -47,9 +58,36 @@ public class ShadowPlayback : MonoBehaviour
                 jumpNumber--;
             }
 
+            if (input.interact)
+            {
+               
+                TryInteractWithObjectInRange();
+            }
+
             if (isGrounded) jumpNumber = 1;
 
             currentFrame++;
+        }
+    }
+
+    void TryInteractWithObjectInRange()
+    {
+        Debug.Log(transform.position);
+        
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, interactRange);
+
+        Debug.Log(hitColliders.Length);
+
+        foreach (var hit in hitColliders)
+        {
+            Debug.Log("olalolilela");
+            var interactable = hit.GetComponent<IInteractor>();
+
+            if (interactable != null)
+            {
+                interactable.Interact();
+                break;
+            }
         }
     }
 
