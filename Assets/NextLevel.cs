@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class PortalTeleporter : MonoBehaviour
 {
-    public string sceneToLoad = "SampleScene";
+    public string sceneToLoad = "SampleScreen";
 
     private bool playerIsInside = false;
 
