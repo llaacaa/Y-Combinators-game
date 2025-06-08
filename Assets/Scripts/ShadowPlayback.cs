@@ -15,6 +15,7 @@ public class ShadowPlayback : MonoBehaviour
     public Transform groundCheck;
     public float groundCheckRadius = 0.1f;
     public LayerMask groundLayer;
+    public LayerMask platformLayer;
     public int jumpNumber = 1;
     private Vector3 spawnPosition;
 
@@ -66,6 +67,7 @@ public class ShadowPlayback : MonoBehaviour
             }
 
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+            if(!isGrounded)isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, platformLayer);
             if (input.jump && (isGrounded || jumpNumber > 0))
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
@@ -117,7 +119,7 @@ public class ShadowPlayback : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log(collision.gameObject.name);
-        if (collision.gameObject.name == "character (1)(Clone)" || collision.gameObject.name == "character")
+        if (collision.gameObject.name == "character (4)(Clone)" || collision.gameObject.name == "character (3)")
         {
             GlobalState.isGameOver = true;
         }

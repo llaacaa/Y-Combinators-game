@@ -154,6 +154,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Scripts\Random\Active Child.cs" />
     <Compile Include="Assets\Scripts\Space manipulation\GhostState.cs" />
+    <Compile Include="Assets\NextLevel.cs" />
     <Compile Include="Assets\Scripts\Random\SecurityCamera.cs" />
     <Compile Include="Assets\Scripts\Spells\IceBall.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />

@@ -18,7 +18,7 @@ public class Bullet : MonoBehaviour
     {
         Destroy(gameObject);
         Debug.Log("IS THIS CORRECT " +  collision.gameObject.name);
-        if (collision.gameObject.name == "character (1)(Clone)")
+        if (collision.gameObject.name == "character (4)(Clone)")
         {
             Destroy(collision.gameObject);
         }

@@ -18,12 +18,11 @@ public class Movement : MonoBehaviour
     public Transform groundCheck;
     public float groundCheckRadius = 0.1f;
     public LayerMask groundLayer;
+    public LayerMask platformLayer;
     public int jumpNumber = 0;
 
-<<<<<<< Updated upstream
-=======
     private Animator animator;
->>>>>>> Stashed changes
+
 
     void Start()
     {
@@ -59,8 +58,7 @@ public class Movement : MonoBehaviour
         float moveX = Input.GetAxisRaw("Horizontal");
         rb.linearVelocity = new Vector2(moveX * moveSpeed, rb.linearVelocity.y); 
 
-<<<<<<< Updated upstream
-=======
+
         animator.SetFloat("Speed", Mathf.Abs(moveX));
 
         if (moveX > 0)
@@ -72,7 +70,7 @@ public class Movement : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 229, 0);
         }
 
->>>>>>> Stashed changes
+
         if (Input.GetKeyDown(KeyCode.Space) && (isGrounded || jumpNumber > 0))
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
@@ -80,6 +78,7 @@ public class Movement : MonoBehaviour
         }
 
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        if(!isGrounded)isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, platformLayer);
         if (isGrounded) { jumpNumber = 1; }
     }
 
