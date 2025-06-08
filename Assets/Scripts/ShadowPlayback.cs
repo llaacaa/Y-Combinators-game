@@ -20,6 +20,8 @@ public class ShadowPlayback : MonoBehaviour
 
     public float interactRange = 4.0f;
 
+    private Animator animator;
+
     public void LoadPlayback(List<PlayerInputFrame> inputs, Vector3 spawnPosition)
     {
         playbackInputs = inputs;
@@ -31,6 +33,7 @@ public class ShadowPlayback : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -50,6 +53,17 @@ public class ShadowPlayback : MonoBehaviour
         {
             PlayerInputFrame input = playbackInputs[currentFrame];
             rb.linearVelocity = new Vector2(input.horizontal * moveSpeed, rb.linearVelocity.y);
+
+            animator.SetFloat("Speed", Mathf.Abs(input.horizontal));
+
+            if (input.horizontal > 0)
+            {
+                transform.rotation = Quaternion.Euler(0, 128, 0);
+            }
+            else if (input.horizontal < 0)
+            {
+                transform.rotation = Quaternion.Euler(0, 229, 0);
+            }
 
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
             if (input.jump && (isGrounded || jumpNumber > 0))

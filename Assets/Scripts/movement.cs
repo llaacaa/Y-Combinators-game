@@ -18,10 +18,15 @@ public class Movement : MonoBehaviour
     public LayerMask groundLayer;
     public int jumpNumber = 0;
 
+<<<<<<< Updated upstream
+=======
+    private Animator animator;
+>>>>>>> Stashed changes
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -32,8 +37,22 @@ public class Movement : MonoBehaviour
         }
 
         float moveX = Input.GetAxisRaw("Horizontal");
-        rb.linearVelocity = new Vector2(moveX * moveSpeed, rb.linearVelocity.y);
+        rb.linearVelocity = new Vector2(moveX * moveSpeed, rb.linearVelocity.y); 
 
+<<<<<<< Updated upstream
+=======
+        animator.SetFloat("Speed", Mathf.Abs(moveX));
+
+        if (moveX > 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 128, 0);
+        }
+        else if (moveX < 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 229, 0);
+        }
+
+>>>>>>> Stashed changes
         if (Input.GetKeyDown(KeyCode.Space) && (isGrounded || jumpNumber > 0))
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
