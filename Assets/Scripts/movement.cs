@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class Movement : MonoBehaviour
     public Transform firePointRight;
 
     public GameObject bulletPrefab;
+    public GameObject portalBeamPrefab;
     public float bulletSpeed = 10f; // ADDED THIS
     public Transform groundCheck;
     public float groundCheckRadius = 0.1f;
@@ -31,9 +33,27 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+        if (GlobalState.isGameOver)
+        {
+            Debug.Log("GAME OVER");
+            SceneManager.LoadScene("EndScreen");
+        }
+
         if (Input.GetButtonDown("Fire1"))
         {
             Fire();
+        }
+
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+
+        if (scroll > 0 || scroll < 0)
+        {
+            GlobalState.toggleActiveWeapon();
+        }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            GlobalState.ClearPortals();
         }
 
         float moveX = Input.GetAxisRaw("Horizontal");
@@ -84,11 +104,16 @@ public class Movement : MonoBehaviour
         float currentLength = Mathf.Sqrt(rawDirection.x * rawDirection.x + rawDirection.y * rawDirection.y);
 
         Vector3 direction = rawDirection / currentLength; // Normalizacija
-        float factor = bulletSpeed*5 / currentLength;
+
+        int speed = GlobalState.isGunActive ? 5 : 1;
+        
+        float factor = bulletSpeed * speed / currentLength;
 
         Vector2 velocity = new Vector2(rawDirection.x * factor, rawDirection.y * factor);
 
-        GameObject bullet = Instantiate(bulletPrefab, chosenFirePoint.position, Quaternion.identity);
+        GameObject chosenGunAmmo = GlobalState.isGunActive ? bulletPrefab : portalBeamPrefab;
+
+        GameObject bullet = Instantiate(chosenGunAmmo, chosenFirePoint.position, Quaternion.identity);
         Rigidbody2D bulletRB = bullet.GetComponent<Rigidbody2D>();
         bulletRB.gravityScale = 0f;
 

@@ -113,4 +113,13 @@ public class ShadowPlayback : MonoBehaviour
             Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log(collision.gameObject.name);
+        if (collision.gameObject.name == "character (1)(Clone)" || collision.gameObject.name == "character")
+        {
+            GlobalState.isGameOver = true;
+        }
+    }
 }

@@ -2,7 +2,7 @@
 
 public class Portal : MonoBehaviour
 {
-    [SerializeField] private Transform destinationPortal;
+    [SerializeField] public Transform destinationPortal;
     [SerializeField] private float cooldownTime = 0.1f;
     static private bool isPortalDisabled = false;
 
@@ -17,6 +17,7 @@ public class Portal : MonoBehaviour
             // Teleport to destination portal's position
             Vector3 newPosition = characterTransform.position;
             newPosition.x = destinationPortal.position.x;
+            newPosition.y = destinationPortal.position.y;
             characterTransform.position = newPosition;
 
             // Disable portals temporarily
