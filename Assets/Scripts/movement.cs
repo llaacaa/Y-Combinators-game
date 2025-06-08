@@ -23,6 +23,7 @@ public class Movement : MonoBehaviour
 
     private Animator animator;
 
+         
 
     void Start()
     {
@@ -111,6 +112,11 @@ public class Movement : MonoBehaviour
         Vector2 velocity = new Vector2(rawDirection.x * factor, rawDirection.y * factor);
 
         GameObject chosenGunAmmo = GlobalState.isGunActive ? bulletPrefab : portalBeamPrefab;
+
+        if (GlobalState.isGunActive)
+        {
+
+        }
 
         GameObject bullet = Instantiate(chosenGunAmmo, chosenFirePoint.position, Quaternion.identity);
         Rigidbody2D bulletRB = bullet.GetComponent<Rigidbody2D>();

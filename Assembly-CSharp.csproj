@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{F8FF2FB6-9685-F7BC-1981-FE6E942760EB}</ProjectGuid>
+    <ProjectGuid>{5A5D70D9-9A82-95B5-5C20-D83B02A55BEE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -55,7 +55,7 @@
     <UnityVersion>6000.1.6f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.1.6f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.1.6f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.1.6f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
@@ -114,6 +114,7 @@
     <Compile Include="Assets\Scripts\Random\IInteractable.cs" />
     <Compile Include="Assets\Scripts\Time manipulation\AgeManager.cs" />
     <Compile Include="Assets\Scripts\AI\GuardAI.cs" />
+    <Compile Include="Assets\Scripts\MusicPlayer.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
     <Compile Include="Assets\InventorySystem\PlayerInventory.cs" />
     <Compile Include="Assets\Scripts\Portal.cs" />
@@ -168,6 +169,7 @@
     <Compile Include="Assets\InventorySystem\EquipmentSystem\EquipmentSlot.cs" />
     <Compile Include="Assets\Scripts\ShadowRecorder.cs" />
     <Compile Include="Assets\InventorySystem\Hotbar\UIHotbarSelector.cs" />
+    <Compile Include="Assets\TryAgain.cs" />
     <Compile Include="Assets\Scripts\Random\Door.cs" />
     <Compile Include="Assets\Scripts\Random\PhysicalButton.cs" />
   </ItemGroup>
