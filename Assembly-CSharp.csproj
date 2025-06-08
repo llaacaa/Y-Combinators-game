@@ -61,6 +61,7 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.1.6f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Back.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\Scripts\Boss scripts\Shooting.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
@@ -75,6 +76,7 @@
     <Compile Include="Assets\Scripts\Random\Player.cs" />
     <Compile Include="Assets\Scripts\Time manipulation\TimeManipulation.cs" />
     <Compile Include="Assets\Scripts\Random\ObjectControll.cs" />
+    <Compile Include="Assets\Scripts\MenuController.cs" />
     <Compile Include="Assets\Scripts\Random\BillboardUI.cs" />
     <Compile Include="Assets\Scripts\IInterector.cs" />
     <Compile Include="Assets\Scripts\Space manipulation\SwapPlaces.cs" />
@@ -90,6 +92,8 @@
     <Compile Include="Assets\InventorySystem\WeaponItem.cs" />
     <Compile Include="Assets\Scripts\Space manipulation\BlackHole.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
+    <Compile Include="Assets\Scripts\HowToPlay.cs" />
+    <Compile Include="Assets\Scripts\Play.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\InventorySystem\Tests\AddItemToInventory.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
